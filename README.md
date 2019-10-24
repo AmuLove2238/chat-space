@@ -26,8 +26,8 @@
 ## messageﾃｰﾌﾞﾙ
 |Column|Type|Options|
 |------|----|-------|
-|body|text|foreign_key:true|
-|image|string|foreign_key:true|
+|body|text|-------|
+|image|string|-------|
 ### Association
 - belong_to:user
 - belong_to:group
