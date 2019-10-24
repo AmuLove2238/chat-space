@@ -28,6 +28,8 @@
 |------|----|-------|
 |body|text|-------|
 |image|string|-------|
+|user_id|integer|null: false, foreign_key:true|
+|group_id|integer|null: false, foreign_key:true|
 ### Association
 - belong_to:user
 - belong_to:group
