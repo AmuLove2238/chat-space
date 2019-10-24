@@ -1,34 +1,32 @@
-##userﾃｰﾌﾞﾙ
 |Column|Type|Options|
 |------|----|-------|
 |user|string|null: false|
 |email|string|null: false|
-###Association
+### Association
 - has_many:members
 - has_many:groups, through: :members
-- has_many:members
-##groupﾃｰﾌﾞﾙ
+- has_many:messages
+## groupﾃｰﾌﾞﾙ
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-###Association
+### Association
 - has_many:members
 - has_many:groups, through: :members
-- has_many:members
-##memberﾃｰﾌﾞﾙ
+- has_many:messages
+## memberﾃｰﾌﾞﾙ
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
-|group_id|integer|null: false|
-###Association
+|user_id|integer|null: false, foreign_key:true|
+|group_id|integer|null: false, foreign_key:true|
+### Association
 - belongs_to:user
 - belongs_to:group
-
-##messageﾃｰﾌﾞﾙ
+## messageﾃｰﾌﾞﾙ
 |Column|Type|Options|
 |------|----|-------|
 |body|text|-------|
 |image|string|-------|
-###Association
+### Association
 - belong_to:user
 - belong_to:group
