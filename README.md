@@ -1,6 +1,6 @@
 |Column|Type|Options|
 |------|----|-------|
-|user|string|null: false|
+|name|string|null: false|
 |email|string|null: false|
 ### Association
 - has_many:members
@@ -25,8 +25,8 @@
 ## messageﾃｰﾌﾞﾙ
 |Column|Type|Options|
 |------|----|-------|
-|body|text|-------|
-|image|string|-------|
+|body|text|foreign_key:true|
+|image|string|foreign_key:true|
 ### Association
 - belong_to:user
 - belong_to:group
