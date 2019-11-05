@@ -1,50 +1,56 @@
-.flash-box
-  グループを作成しました
 .wrapper
-  .chat-header
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name KentaroNamerisawa
-        %ul.side-header__box__menu
-          %li.side-header__box__menu__new-group
-            =link_to "http://yahoo.com" do
-              =fa_icon 'edit'
-          %li.side-header__box__menu__edit-user
-            =link_to "/users/edit" do
-              =fa_icon 'cog'
-    .groups
-      .group
-        %p.group__group-name
-          Hello USA!
-        %p.group_latest-message
-          LTNS
-      
-  .chat-main
-    .main-header
-      .main-header__left-box
-        %h2.main-header__left-box__current-group
-          Hello USA!
-        %p.main-header__left-box__member
-          Member: KentaroNamerisawa
-      .main-header__right-box
-        =link_to "/" do
-          .main-header__right-box__edit-btn
-            Edit
 
+  = render 'shared/side_bar'
+
+  .chat
+    .header
+      .left-header
+        .left-header__title
+          グループ名
+        %ul.left-header__members
+          Member：
+          %li.member
+            メンバー名
+          %li.member
+            メンバー名
+          %li.member
+            メンバー名
+      .right-header
+        .right-header__button
+          Edit
     .messages
       .message
-        %h2.message__user
-          KentaroNamerisawa
-          %span.message__user__time
-            2019/10/28(Mon) 22:00:00
-        %p.message__text
-          LTNS
-      
+        .upper-message
+          .upper-message__user-name
+            メンバー
+          .upper-message__date
+            2017/04/04
+        .lower-meesage
+          .lower-message__content
+            メッセージ
+      .message
+        .upper-message
+          .upper-message__user-name
+            メンバー
+          .upper-message__date
+            2017/04/04
+        .lower-meesage
+          .lower-message__content
+            メッセージ
+      .message
+        .upper-message
+          .upper-message__user-name
+            メンバー
+          .upper-message__date
+            2017/04/04
+        .lower-meesage
+          .lower-message__content
+            メッセージ
     .form
-      .new_message
-        .input-box
-          %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}
-          %label.input-box__image{for: "message_image"}
-            %i.fa.fa-image
-          %input#message_image.input-box__image__file{name: "message[image]", type: "file"}
-        %input.submit-btn{name:"commit", type: "submit", value: "Send"}
+      %form
+        %input.form__message
+        .form__mask
+          %label.form__mask__image
+            = fa_icon 'picture-o', class: 'icon'
+            %input.hidden{type: 'file'}
+        %input.form__submit{type: 'submit', value: 'Send'}
