@@ -1,4 +1,5 @@
-$(function() {
+$(function scroll() {  
+  $('.messages').animate({scrollTop: $('.message')[0].scrollHeight});
 
   function buildHTML(message){
   var html = `<div class="message">
@@ -14,14 +15,13 @@ $(function() {
                             <p class="lower-message__content">
                                 ${ message.content }
                             </p>
+                                ${image}
                         </div>
                     </div>`;
       return html;
   }
 
-  function scroll() {  
-      $('.messages').animate({scrollTop: $('.message')[0].scrollHeight});
-  }
+  
   $("#new_message").on('submit', function(e) {
       e.preventDefault();
       var formData = new FormData(this);
@@ -36,9 +36,9 @@ $(function() {
       })
   
       .done(function(message){
-          .var html = buildHTML(message);
+          var html = buildHTML(message);
           $('.messages').append(html);
-          $('.form__message').val('');
+          $('.form__message')[0].reset('');
           $('.form__submit').prop('disabled', false);
           scroll()
       })
@@ -48,4 +48,5 @@ $(function() {
           $('.form__submit').prop('disabled', false);
       })
   })
+  
   })
