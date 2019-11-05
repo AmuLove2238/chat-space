@@ -1,35 +1,51 @@
-$(function(){
+$(function() {
 
-
-  function buildMessage(message){
-    var html = `<div class="message">
-                  ${message.user}
-                  ${message.date}
-                  ${message.content}
-                  ${message.image}
-                </div>`
-    return html;
+  function buildHTML(message){
+  var html = `<div class="message">
+                        <div class="upper-message">
+                            <div class="upper-message__user-name">
+                                ${ message.name }
+                            </div>
+                            <div class="upper-message__date">
+                                ${ message.time }
+                            </div>
+                        </div>
+                        <div class="lower-message">
+                            <p class="lower-message__content">
+                                ${ message.content }
+                            </p>
+                        </div>
+                    </div>`;
+      return html;
   }
 
-  $('#new_message').on('submit',function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action');
-    $.ajax({
+  function scroll() {  
+      $('.messages').animate({scrollTop: $('.message')[0].scrollHeight});
+  }
+  $("#new_message").on('submit', function(e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+      var url = $(this).attr('action');
+      $.ajax({
       url: url,
-      type: 'POST',
+      type: "POST",
       data: formData,
       dataType: 'json',
       processData: false,
       contentType: false
-    })
-    .done(function(message){
-      var html = buildMessage(message);
-      $('.messages').append(html)
-      $('#message_content')[0].reset('')
-    })
-    .fail(function(){
-      alert('メッセージ送信に失敗しました');
-    })
+      })
+  
+      .done(function(message){
+          .var html = buildHTML(message);
+          $('.messages').append(html);
+          $('.form__message').val('');
+          $('.form__submit').prop('disabled', false);
+          scroll()
+      })
+
+      .fail(function(){  
+          alert('メッセージ送信に失敗しました')
+          $('.form__submit').prop('disabled', false);
+      })
   })
-})
+  })
