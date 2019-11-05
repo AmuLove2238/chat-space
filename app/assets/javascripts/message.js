@@ -5,9 +5,8 @@ $(function(){
     var html = `<div class="message">
                   ${message.user}
                   ${message.date}
-                  ${message.text}
+                  ${message.content}
                   ${message.image}
-
                 </div>`
     return html;
   }
@@ -27,7 +26,7 @@ $(function(){
     .done(function(message){
       var html = buildMessage(message);
       $('.messages').append(html)
-      $('#message_content').reset('')
+      $('#message_content')[0].reset('')
     })
     .fail(function(){
       alert('メッセージ送信に失敗しました');
