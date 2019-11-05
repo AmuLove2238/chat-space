@@ -15,7 +15,7 @@ $(function scroll() {
                             <p class="lower-message__content">
                                 ${ message.content }
                             </p>
-                                ${image}
+                                ${message.image}
                         </div>
                     </div>`;
       return html;
