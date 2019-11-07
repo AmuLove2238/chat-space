@@ -1,8 +1,7 @@
 $(function(){
 
   function buildMessage(message){
-    var noImage = ""; 
-
+    var noImage = "";
       var html = noImage? `<div class="message" data-message-id=${message.id}>
       <div class="upper-message">
         <div class="upper-message__user-name">
