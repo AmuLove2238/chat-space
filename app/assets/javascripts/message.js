@@ -1,8 +1,10 @@
 $(function(){
 
   function buildMessage(message){
-    var noImage = "";
-      var html = noImage? `<div class="message" data-message-id=${message.id}>
+
+  var putImage = (message.image) ? `</div><img src=${message.image} ></div>` : "";
+
+  var html =`<div class="message" data-message-id=${message.id}>
       <div class="upper-message">
         <div class="upper-message__user-name">
           ${message.user_name}
@@ -15,25 +17,8 @@ $(function(){
         <p class="lower-message__content">
           ${message.content}
         </p>
-      </div>
-    </div>`:
-    `<div class="message" data-message-id=${message.id}>
-          <div class="upper-message">
-            <div class="upper-message__user-name">
-              ${message.user_name}
-            </div>
-            <div class="upper-message__date">
-              ${message.date}
-            </div>
-          </div>
-          <div class="lower-message">
-            <p class="lower-message__content">
-              ${message.content}
-            </p>
-          </div>
-          <img src=${message.image} >
-        </div>`
-      return html;
+          ${putImage}`
+  return html;
   }
 
 
