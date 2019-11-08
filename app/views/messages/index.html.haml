@@ -6,18 +6,16 @@
     .header
       .left-header
         .left-header__title
-          グループ名
+          = @group.name
         %ul.left-header__members
-          Member：
-          %li.member
-            メンバー名
-          %li.member
-            メンバー名
-          %li.member
-            メンバー名
+          Members:
+          - @group.users.each do |user|
+            %span
+              = (user.name)+ ":"
       .right-header
+        = link_to "Edit", edit_group_path(@group), class: 'main-content__header__edit-btn__inside'
         .right-header__button
-          Edit
+          -# Edit
     .messages
       = render @messages
 
