@@ -8,6 +8,7 @@
     line-height: 100px;
     padding: 0 20px;
     &__name {
+      color: #ffffff;
       display: inline-block;
       font-size: $side_header_font;
       font-weight: bold;
@@ -25,6 +26,17 @@
     }
   }
 
+  .top {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all .8s;
+    
+  }
+  .top:hover {
+    color: darkblue;
+    background-color: #ffffff;
+  }
+
   .groups {
     background-color: $side_blue_light;
     height: calc(100vh - 100px);
@@ -33,9 +45,12 @@
       box-sizing: border-box;
       padding: 20px 0 40px;
       &__name {
+
+        color: #ffffff;
         font-size: $side_group_name;
       }
       &__message {
+        color: #ffffff;
         font-size: $side_group_message;
         margin-top: 5px;
       }

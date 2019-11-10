@@ -11,11 +11,11 @@
           Members:
           - @group.users.each do |user|
             %span
-              = (user.name)+ ":"
+              = "　" + (user.name)
       .right-header
         = link_to "Edit", edit_group_path(@group), class: 'main-content__header__edit-btn__inside'
         .right-header__button
-          -# Edit
+        
     .messages
       = render @messages
 
