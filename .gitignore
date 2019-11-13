@@ -16,3 +16,4 @@
 # Ignore Byebug command history file.
 
 public/uploads/*
+config/secrets.yml
